@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "LiterationMono Nerd Font:pixelsize=13:antialias=true:autohint=true";
+static char *font = "Liberation Mono:pixelsize=13:antialias=true:autohint=true";
 static int borderpx = 10;
 
 /*
@@ -26,8 +26,8 @@ char *stty_args = "stty raw pass8 nl -echo -iexten -cstopb 38400";
 char *vtiden = "\033[?6c";
 
 /* Kerning / character bounding-box multipliers */
-static float cwscale = 0.9;
-static float chscale = 1.5;
+static float cwscale = 1.0;
+static float chscale = 1.6;
 
 /*
  * word delimiter string
@@ -133,7 +133,7 @@ static const char *colorname[] = {
 	[255] = 0,
 
 	/* more colors can be added after 255 to use with DefaultXX */
-	"#cccccc",
+	"#24292e",
 	"#ffffff",
 	"gray90", /* default foreground colour */
 	"black", /* default background colour */
@@ -144,7 +144,7 @@ static const char *colorname[] = {
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultfg = 12;
+unsigned int defaultfg = 256;
 unsigned int defaultbg = 257;
 unsigned int defaultcs = 14;
 static unsigned int defaultrcs = 15;
@@ -216,6 +216,7 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
+	{ TERMMOD,              XK_Return,      newterm,        {.i =  0} },
 };
 
 /*
