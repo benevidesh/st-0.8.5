@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Liberation Mono:pixelsize=13:antialias=true:autohint=true";
+static char *font = "LiterationMono Nerd Font:pixelsize=13:antialias=true:autohint=true";
 static int borderpx = 10;
 
 /*
@@ -27,7 +27,7 @@ char *vtiden = "\033[?6c";
 
 /* Kerning / character bounding-box multipliers */
 static float cwscale = 1.0;
-static float chscale = 1.6;
+static float chscale = 1.5;
 
 /*
  * word delimiter string
@@ -113,41 +113,48 @@ unsigned int tabspaces = 8;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-	/* solarized light */
-	"#eee8d5",  /*  0: black    */
-	"#dc322f",  /*  1: red      */
-	"#859900",  /*  2: green    */
-	"#b58900",  /*  3: yellow   */
-	"#268bd2",  /*  4: blue     */
-	"#d33682",  /*  5: magenta  */
-	"#2aa198",  /*  6: cyan     */
-	"#073642",  /*  7: white    */
-	"#fdf6e3",  /*  8: brblack  */
-	"#cb4b16",  /*  9: brred    */
-	"#93a1a1",  /* 10: brgreen  */
-	"#839496",  /* 11: bryellow */
-	"#657b83",  /* 12: brblue   */
-	"#6c71c4",  /* 13: brmagenta*/
-	"#586e75",  /* 14: brcyan   */
-	"#002b36",  /* 15: brwhite  */
-	[255] = 0,
 
-	/* more colors can be added after 255 to use with DefaultXX */
-	"#24292e",
-	"#ffffff",
-	"gray90", /* default foreground colour */
-	"black", /* default background colour */
+  /* 8 normal colors */
+  [0] = "#383a42", /* black   */
+  [1] = "#e45649", /* red     */
+  [2] = "#50a14f", /* green   */
+  [3] = "#c18401", /* yellow  */
+  [4] = "#0184bc", /* blue    */
+  [5] = "#a626a4", /* magenta */
+  [6] = "#0997b3", /* cyan    */
+  [7] = "#fafafa", /* white   */
+
+  /* 8 bright colors */
+  [8]  = "#4f525e", /* black   */
+  [9]  = "#e06c75", /* red     */
+  [10] = "#98c379", /* green   */
+  [11] = "#e5c07b", /* yellow  */
+  [12] = "#61afef", /* blue    */
+  [13] = "#c678dd", /* magenta */
+  [14] = "#56b6c2", /* cyan    */
+  [15] = "#ffffff", /* white   */
+
+  /* special colors */
+  [256] = "#fafafa", /* background */
+  [257] = "#383a42", /* foreground */
 };
-
 
 /*
  * Default colors (colorname index)
- * foreground, background, cursor, reverse cursor
+ * foreground, background, cursor
  */
-unsigned int defaultfg = 256;
-unsigned int defaultbg = 257;
-unsigned int defaultcs = 14;
-static unsigned int defaultrcs = 15;
+unsigned int defaultfg = 257;
+unsigned int defaultbg = 256;
+unsigned int defaultcs = 257;
+static unsigned int defaultrcs = 7;
+
+/*
+ * Colors used, when the specific fg == defaultfg. So in reverse mode this
+ * will reverse too. Another logic would only make the simple feature too
+ * complex.
+ */
+static unsigned int defaultitalic = 7;
+static unsigned int defaultunderline = 7;
 
 /*
  * Default shape of cursor
