@@ -6,7 +6,7 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 static char *font = "LiterationMono Nerd Font:pixelsize=13:antialias=true:autohint=true";
-static int borderpx = 10;
+static int borderpx = 13;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -19,7 +19,7 @@ static int borderpx = 10;
 static char *shell = "/bin/sh";
 char *utmp = NULL;
 /* scroll program: to enable use a string like "scroll" */
-char *scroll = NULL;
+char *scroll = "scroll";
 char *stty_args = "stty raw pass8 nl -echo -iexten -cstopb 38400";
 
 /* identification sequence returned in DA and DECID */
@@ -135,7 +135,7 @@ static const char *colorname[] = {
   [15] = "#ffffff", /* white   */
 
   /* special colors */
-  [256] = "#fafafa", /* background */
+  [256] = "#ffffff", /* background */
   [257] = "#383a42", /* foreground */
 };
 
